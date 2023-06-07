@@ -1,0 +1,110 @@
+{
+    "courses": [
+      {
+        "id": "1",
+        "image": "https://i.ibb.co/xjSF0g4/learn-english.jpg",
+        "name": " English Language Course",
+        "instructor": "John Doe",
+        "available_seats": 10,
+        "category": "popular",
+        "price": 99.99
+      },
+      {
+        "id": "2",
+        "image": "https://i.ibb.co/0M3FY15/korean-language.jpg",
+        "name": " Korean Language Course ",
+        "instructor": "Jane Smith",
+        "available_seats": 5,
+        "price": 149.99
+      },
+      {
+        "id": "3",
+        "image": "https://i.ibb.co/FX9y7Bc/learning-Arabic.jpg",
+        "name": " Arabic Language Course",
+        "instructor": "David Johnson",
+        "available_seats": 8,
+        "category": "popular",
+        "price": 79.99
+      },
+      {
+        "id": "4",
+        "image": "https://i.ibb.co/bs3sPYT/learning-French.jpg",
+        "name": "French Language Course",
+        "instructor": "Emily Brown",
+        "available_seats": 12,
+        "category": "popular",
+        "price": 119.99
+      },
+      {
+        "id": "5",
+        "image": "https://i.ibb.co/yYRZ5f0/Learn-Chinese.jpg",
+        "name": " Chinese Language Course",
+        "instructor": "Michael Wilson",
+        "available_seats": 3,
+        "price": 199.99
+      },
+      {
+        "id": "6",
+        "image": "https://i.ibb.co/GFMF74S/learning-spanish.jpg",
+        "name": "Spanish Language Course",
+        "instructor": "Sophia Lee",
+        "available_seats": 7,
+        "category": "normal",
+        "price": 89.99
+      },
+      {
+        "id": "7",
+        "image": "https://i.ibb.co/yPY5DSZ/Learning-German.jpg",
+        "name": " German Language Course",
+        "instructor": "Jacob Martinez",
+        "available_seats": 15,
+        "category": "popular",
+        "price": 129.99
+      },
+      {
+        "id": "8",
+        "image": "https://i.ibb.co/fQM93yk/learning-itatian.jpg",
+        "name": "Italian Language Course",
+        "instructor": "Olivia Davis",
+        "available_seats": 2,
+        "price": 249.99
+      },
+      {
+        "id": "9",
+        "image": "https://i.ibb.co/VQ9rLwh/romanian-lessons.jpg",
+        "name": " Romanian Language Course",
+        "instructor": "Daniel Clark",
+        "available_seats": 6,
+        "category": "normal",
+        "price": 109.99
+      },
+      {
+        "id": "10",
+        "image": "https://i.ibb.co/cx9P3Xg/learning-japanese.jpg",
+        "name": " Japanese Language Course",
+        "instructor": "Ava Taylor",
+        "available_seats": 9,
+        "category": "popular",
+        "price": 139.99
+      },
+      {
+        "id": "11",
+        "image": "https://i.ibb.co/YQCK7qg/learning-Portugies.jpg",
+        "name": " Portuguese Language Course",
+        "instructor": "Matthew Anderson",
+        "available_seats": 4,
+        "category": "normal",
+        "price": 169.99
+      },
+      {
+        "id": "12",
+        "image": "https://i.ibb.co/1Td4x8d/learn-russian.jpg",
+        "name": "Russian Language Course",
+        "instructor": "Emma Garcia",
+        "available_seats": 11,
+        "category": "popular",
+        "price": 95.99
+      }
+    ]
+  }
+  

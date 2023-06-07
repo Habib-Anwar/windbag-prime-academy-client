@@ -3,6 +3,7 @@ import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import slider1 from '../../../assets/images/slider1.jpg'
 import slider2 from '../../../assets/images/slider2.jpg'
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 const Banner = () => {
     return (
         <div>
@@ -12,6 +13,9 @@ const Banner = () => {
                 {/* <div data-src="/path/to/image-2.jpg" />
                 <div data-src="/path/to/image-3.jpg" /> */}
             </AwesomeSlider>
+            <SectionTitle subHeading="your favorite classes"
+            heading="popular classes">
+            </SectionTitle>
 
         </div>
     );
