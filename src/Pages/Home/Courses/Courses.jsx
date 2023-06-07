@@ -2,18 +2,17 @@
 
 const Courses = ({course}) => {
     const {image, name, instructor, available_seats, price} = course;
-    console.log(course)
     return (
         <>
-<section className="bg-[#F3F4F6] pt-20 pb-10 lg:pt-[120px] lg:pb-20">
+<section>
   <div className="container mx-auto">
     <div className="-mx-4 flex flex-wrap">
-      <div className="w-full px-4 md:w-1/2 xl:w-1/3">
-        <div className="mb-10 overflow-hidden rounded-lg bg-white">
+      <div className="w-full px-4">
+        <div className=" overflow-hidden rounded-lg bg-white">
           <img
             src={image}
             alt="image"
-            className="w-full"
+            className="w-full h-auto max-w-lg transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0"
           />
           <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
             <h3>
@@ -24,15 +23,22 @@ const Courses = ({course}) => {
                 {name}
               </a>
             </h3>
-            <p className="text-body-color mb-7 text-base leading-relaxed">
-              Lorem ipsum dolor sit amet pretium consectetur adipiscing elit.
-              Lorem consectetur adipiscing elit.
+            <p className="text-body-color mb-7 text-base font-semibold leading-relaxed">
+                {instructor}
             </p>
+            <div className="flex justify-end gap-24">
+            <p className="text-body-color mb-7 text-base font-semibold leading-relaxed">
+                Available Seats: {available_seats}
+            </p>
+            <p className="text-body-color mb-7 text-base font-semibold leading-relaxed">
+                Price: ${price}
+            </p>
+            </div>
             <a
               href="javascript:void(0)"
               className="text-body-color hover:border-primary hover:bg-primary inline-block rounded-full border border-[#E5E7EB] py-2 px-7 text-base font-medium transition hover:text-white"
             >
-              View Details
+              Select The Course
             </a>
           </div>
         </div>
