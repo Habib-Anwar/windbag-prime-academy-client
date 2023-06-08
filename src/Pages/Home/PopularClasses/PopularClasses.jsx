@@ -1,21 +1,15 @@
-import { useEffect, useState } from "react";
+
 import Courses from "../Courses/Courses";
+import useClass from "../../../hooks/useClass";
 
 const PopularClasses = () => {
-    const [courses, setCourses] = useState([]);
-    useEffect(()=>{
-        fetch('classes.json')
-        .then(res => res.json())
-        .then(data => {
-            const popularCourses = data.filter(course => course.category === 'popular');
-            setCourses(popularCourses)
-        })
-    }, [])
+ const [courses] = useClass();
+ const popular = courses.filter(course =>course.category === 'popular');
     return (
         <>
         <div className="lg:grid grid-cols-3 gap-4">
             {
-                courses.map(course => <Courses
+                popular.map(course => <Courses
                 key={course.id}
                 course={course}></Courses>)
             }
