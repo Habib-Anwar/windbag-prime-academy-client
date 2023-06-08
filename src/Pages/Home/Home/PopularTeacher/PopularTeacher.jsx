@@ -3,20 +3,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
-import { useEffect, useState } from "react";
 import './PopularTeacher.css'
+import useClass from "../../../../hooks/useClass";
 
 const PopularTeacher = () => {
-    const [instructor, setInstructor] = useState([]);
-    useEffect(()=>{
-        fetch('classes.json')
-        .then(res => res.json())
-        .then(data => {
-            const popularCourses = data.filter(course => course.category === 'popular');
-            setInstructor(popularCourses)
-        })
-    }, [])
-   
+   const [courses] = useClass();
+   const popular = courses.filter(course =>course.category === 'popular');
+
+
     return (
         <div className="teacher font-bold">
                   <Swiper
@@ -29,7 +23,7 @@ const PopularTeacher = () => {
       >
         
         {
-            instructor.map(item =><SwiperSlide
+            popular.map(item =><SwiperSlide
             key={item.id}>
                <div className="flex justify-center bg-slate-500 bg-opacity-80 mt-24">
                <div>

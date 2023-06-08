@@ -22,7 +22,7 @@
         "email": "jane.smith@example.com",
         "classes_taken": 8,
         "students": 9,
-        "available_seats": 5,
+        "available_seats": 0,
         "category": "normal",
         "price": 149.99
       },
@@ -61,7 +61,7 @@
         "email": "michael.wilson@example.com",
         "classes_taken": 7,
         "students": 8,
-        "available_seats": 3,
+        "available_seats": 0,
         "category": "normal",
         "price": 199.99
       },
@@ -100,7 +100,7 @@
         "email": "davis@gmail.com",
         "classes_taken": 1,
         "students": 5,
-        "available_seats": 2,
+        "available_seats": 0,
         "category": "normal",
         "price": 249.99
       },
@@ -139,7 +139,7 @@
         "email": "matthewl@gmail.com",
         "classes_taken": 2,
         "students": 7,
-        "available_seats": 4,
+        "available_seats": 0,
         "category": "normal",
         "price": 169.99
       },

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import logo from '../../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,28 +80,27 @@ function Navbar() {
             <nav className="hidden lg:block ml-72">
               <ul className="flex space-x-12">
                 <li>
-                  <a
-                    href="javascript:void(0)"
+                  <Link to="/"
+                   
                     className="text-dark hover:text-primary text-lg font-medium "
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
+                  <Link to='/instructors'
                     className="text-dark hover:text-primary text-lg font-medium"
                   >
                     Instructors
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
+                  <Link to ='/class'
+    
                     className="text-dark hover:text-primary text-lg font-medium"
                   >
                     Classes
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
