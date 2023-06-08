@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Courses from "../Courses/Courses";
-import PopularInstructors from "../Home/PopularInstructors/PopularInstructors";
-
 
 const PopularClasses = () => {
     const [courses, setCourses] = useState([]);
@@ -20,15 +18,6 @@ const PopularClasses = () => {
                 courses.map(course => <Courses
                 key={course.id}
                 course={course}></Courses>)
-            }
-        </div>
-        <div>
-            {
-                courses.map(item =><PopularInstructors
-                key={item.id}
-                item={item}>
-
-                </PopularInstructors>)
             }
         </div>
         </>

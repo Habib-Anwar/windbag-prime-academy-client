@@ -12,9 +12,9 @@ import swipe5 from "../../../../assets/images/swipe5.png"
 import { EffectCoverflow, Pagination } from "swiper";
 
 
-const PopularInstructors = ({item}) => {
-   const {instructor, person_image} = item;
+const PopularInstructors = () => {
     return (
+      <div>
         <div>
             <Swiper
         effect={"coverflow"}
@@ -51,11 +51,8 @@ const PopularInstructors = ({item}) => {
           <img src={swipe5} />
         </SwiperSlide>
       </Swiper>
-      <div>
-        <img src={person_image} alt="" />
-        <p>{instructor}</p>
       </div>
-        </div>
+      </div>
     );
 };
 
