@@ -1,16 +1,36 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data =>{
-        console.log(data)
-    }
+    const navigate = useNavigate();
+    const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
     const {signIn} = useContext(AuthContext);
+    const onCommit = data =>{
+        signIn(data.email, data.password)
+        .then(result => {
+          const user = result.user;
+          console.log(user);
+          Swal.fire({
+            title: 'Login Successfully',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          });
+          navigate(from, {replace: true});
+        })
+    }
 
     return (
         <div>
@@ -26,13 +46,14 @@ const Login = () => {
                         Please Login
                     </h3>
                   </div>
-                  <form>
+                  <form onSubmit={handleSubmit(onCommit)}>
                   <div className="mb-6">
                  <label className="mb-3 block text-base font-medium text-black text-left">
                  Email
                  </label>
                  <div className="relative">
-                    <input type="email" placeholder="info@yourmail.com" className="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"/>
+                    <input type="email" {...register("email", { required: true })} placeholder="info@yourmail.com" className="w-full rounded-md border border-form-stroke p-3 pl-12 text-black placeholder-[#929DA7] outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"/>
+                    {errors.name && <span className="text-red-600">Name is required</span>}
                     <span className="absolute top-1/2 left-4 -translate-y-1/2">
                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <g opacity="0.8">
@@ -50,7 +71,7 @@ const Login = () => {
                  Password
                  </label>
                  <div className="relative">
-                    <input type="password" placeholder="Password" className="w-full rounded-md border border-danger py-3 pl-5 pr-12 text-black placeholder-[#929DA7] outline-none transition"/>
+                    <input type="password" {...register("password", { required: true })} placeholder="Password" className="w-full rounded-md border border-danger py-3 pl-5 pr-12 text-black placeholder-[#929DA7] outline-none transition"/>
                     <span className="absolute top-1/2 right-4 -translate-y-1/2">
                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fillRule="evenodd" clipRule="evenodd" d="M9.9987 2.50065C5.85656 2.50065 2.4987 5.85852 2.4987 10.0007C2.4987 14.1428 5.85656 17.5007 9.9987 17.5007C14.1408 17.5007 17.4987 14.1428 17.4987 10.0007C17.4987 5.85852 14.1408 2.50065 9.9987 2.50065ZM0.832031 10.0007C0.832031 4.93804 4.93609 0.833984 9.9987 0.833984C15.0613 0.833984 19.1654 4.93804 19.1654 10.0007C19.1654 15.0633 15.0613 19.1673 9.9987 19.1673C4.93609 19.1673 0.832031 15.0633 0.832031 10.0007Z" fill="#DC3545"></path>

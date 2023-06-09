@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import logo from '../../../assets/logo.png'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,6 +64,14 @@ function DropdownMenu() {
 }
 
 function Navbar() {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => { })
+      .catch(error => console.log(error));
+  }
+
   return (
     <header className="flex w-full items-center bg-white">
       <div className="container mx-auto">
@@ -81,7 +91,7 @@ function Navbar() {
               <ul className="flex space-x-12">
                 <li>
                   <Link to="/"
-                   
+
                     className="text-dark hover:text-primary text-lg font-medium "
                   >
                     Home
@@ -95,8 +105,8 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link to ='/class'
-    
+                  <Link to='/class'
+
                     className="text-dark hover:text-primary text-lg font-medium"
                   >
                     Classes
@@ -105,12 +115,20 @@ function Navbar() {
               </ul>
             </nav>
             <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-              <Link to="/login"
-                
-                className="bg-primary rounded-lg py-3 px-7 text-lg font-medium text-white hover:bg-opacity-90"
-              >
-                Login
-              </Link>
+              {
+                user ? <>
+                  <button onClick={handleLogOut}
+                    className="inline-flex items-center justify-center rounded-full bg-primary py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                  >
+                    Log Out
+                  </button>
+
+                </> : <>
+                  <Link to="/login" className="bg-primary rounded-lg py-3 px-7 text-lg font-medium text-white hover:bg-opacity-90">
+                    Login
+                  </Link>
+                </>
+              }
             </div>
           </div>
         </div>
