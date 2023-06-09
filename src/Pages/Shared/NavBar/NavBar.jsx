@@ -105,12 +105,12 @@ function Navbar() {
               </ul>
             </nav>
             <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-              <a
-                href="javascript:void(0)"
+              <Link to="/login"
+                
                 className="bg-primary rounded-lg py-3 px-7 text-lg font-medium text-white hover:bg-opacity-90"
               >
                 Login
-              </a>
+              </Link>
             </div>
           </div>
         </div>

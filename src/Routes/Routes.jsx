@@ -5,6 +5,8 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Instructors from "../Pages/Instructors/Instructors";
 import AllClasses from "../Pages/Classes/AllClasses";
+import Login from "../Pages/Login/Login";
+import Page404 from "../Pages/Page404/Page404";
 
 
 
@@ -25,6 +27,14 @@ import AllClasses from "../Pages/Classes/AllClasses";
         {
           path: 'class',
           element:<AllClasses></AllClasses>
+        },
+        {
+          path: 'login',
+          element: <Login></Login>
+        },
+        {
+          path: '*',
+          element: <Page404></Page404>
         }
       ]
     },

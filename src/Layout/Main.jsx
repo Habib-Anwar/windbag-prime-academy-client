@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Pages/Shared/Footer/Footer";
 import Navbar from "../Pages/Shared/NavBar/NavBar";
 
@@ -6,11 +6,14 @@ import Navbar from "../Pages/Shared/NavBar/NavBar";
 
 
 const Main = () => {
+    const location = useLocation();
+    console.log(location);
+    const noNavbarFooter = location.pathname.includes('404');
     return (
         <div>
-            <Navbar></Navbar>
+            {!noNavbarFooter && <Navbar></Navbar>}
             <Outlet></Outlet>
-            <Footer></Footer>
+            { !noNavbarFooter && <Footer></Footer>}
         </div>
     );
 };
