@@ -7,6 +7,7 @@ import Instructors from "../Pages/Instructors/Instructors";
 import AllClasses from "../Pages/Classes/AllClasses";
 import Login from "../Pages/Login/Login";
 import Page404 from "../Pages/Page404/Page404";
+import SignUp from "../Pages/SignUp/SignUp";
 
 
 
@@ -31,6 +32,10 @@ import Page404 from "../Pages/Page404/Page404";
         {
           path: 'login',
           element: <Login></Login>
+        },
+        {
+          path: 'signup',
+          element: <SignUp></SignUp>
         },
         {
           path: '*',
