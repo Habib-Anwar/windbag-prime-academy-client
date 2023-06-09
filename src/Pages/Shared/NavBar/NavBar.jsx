@@ -117,6 +117,8 @@ function Navbar() {
             <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
               {
                 user ? <>
+                  <span>{user?.displayName}</span>
+                  <img src={user?.photoURL} alt="" className='w-24 mask mask-squircle mr-4' />
                   <button onClick={handleLogOut}
                     className="inline-flex items-center justify-center rounded-full bg-primary py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                   >

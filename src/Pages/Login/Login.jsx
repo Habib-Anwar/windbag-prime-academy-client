@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 
@@ -160,9 +160,9 @@ const Login = () => {
                   </a>
                   <p className="text-base text-[#adadad]">
                     Not a member yet?
-                    <a href="javascript:void(0)" className="text-primary hover:underline">
+                    <Link to="/signup" className="text-primary hover:underline">
                       Sign Up
-                    </a>
+                    </Link>
                   </p>
                   <div>
                     <span className="absolute top-1 right-1">
