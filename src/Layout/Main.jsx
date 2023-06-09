@@ -7,7 +7,6 @@ import Navbar from "../Pages/Shared/NavBar/NavBar";
 
 const Main = () => {
     const location = useLocation();
-    console.log(location);
     const noNavbarFooter = location.pathname.includes('404');
     return (
         <div>
