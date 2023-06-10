@@ -1,11 +1,41 @@
 
+import Swal from "sweetalert2";
 import useCourse from "../../../hooks/useCourse";
 
 
 const StudentDashboard = () => {
-    const [course] = useCourse();
+    const [course, refetch] = useCourse();
 
     const amount = course.reduce((sum, item) => item.price + sum, 0)
+
+    const handleDelete = item =>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+             fetch(`http://localhost:5000/courses/${item._id}`, {
+                method: 'DELETE'
+             })
+             .then(res => res.json())
+             .then(data => {
+                if(data.deleteCount > 0) {
+                    refetch({force:true});
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                      )
+                }
+             })
+            }
+          })
+    }
     return (
         <div>
             <h2 className="text-4xl">Dashboard:</h2>
@@ -95,7 +125,7 @@ const StudentDashboard = () => {
                     </div>
                 </td>
                 <td className="px-6 py-4">
-                    <a href="#" className="font-medium text-red-600 dark:text-blue-500 hover:underline">Remove</a>
+                    <button onClick={()=>handleDelete(item)} className="font-medium text-red-600 dark:text-blue-500 hover:underline">Remove</button>
                 </td>
             </tr>)}
         </tbody>
