@@ -117,6 +117,13 @@ function Navbar() {
             <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
               {
                 user ? <>
+                <div className='mt-9'>
+                <Link to='/instructors'
+                    className="text-dark hover:text-primary text-lg font-medium"
+                  >
+                    Dashboard
+                  </Link>
+                </div>
                   <span>{user?.displayName}</span>
                   <img src={user?.photoURL} alt="" className='w-24 mask mask-squircle mr-4' />
                   <button onClick={handleLogOut}
