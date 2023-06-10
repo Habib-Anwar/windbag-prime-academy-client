@@ -118,7 +118,7 @@ function Navbar() {
               {
                 user ? <>
                 <div className='mt-9'>
-                <Link to='/instructors'
+                <Link to='/dashboard/studentdashboard'
                     className="text-dark hover:text-primary text-lg font-medium"
                   >
                     Dashboard

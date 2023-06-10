@@ -8,6 +8,8 @@ import AllClasses from "../Pages/Classes/AllClasses";
 import Login from "../Pages/Login/Login";
 import Page404 from "../Pages/Page404/Page404";
 import SignUp from "../Pages/SignUp/SignUp";
+import Dashboard from "../Layout/Dashboard";
+import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboard";
 
 
 
@@ -36,11 +38,21 @@ import SignUp from "../Pages/SignUp/SignUp";
         {
           path: 'signup',
           element: <SignUp></SignUp>
-        },
-        {
-          path: '*',
-          element: <Page404></Page404>
         }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: '/dashboard/studentdashboard',
+          element: <StudentDashboard></StudentDashboard>
+        }
+      ]
+    },
+    {
+      path: '*',
+      element: <Page404></Page404>
+    }
   ]);
