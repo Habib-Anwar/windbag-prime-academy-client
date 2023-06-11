@@ -4,11 +4,16 @@ import { AuthContext } from "../providers/AuthProvider"
 
 const useCourse = ()=>{
     const { user } = useContext(AuthContext);
+    const token = localStorage.getItem('access-token');
 
     const { refetch, data: course = []} = useQuery({
         queryKey: ['courses', user?.email],
         queryFn: async () =>{
-            const res = await fetch(`http://localhost:5000/courses?email=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/courses?email=${user?.email}`,{
+                headers: {
+                    authorization: `bearer ${token}`
+                }
+            })
             return res.json();
         },
     })

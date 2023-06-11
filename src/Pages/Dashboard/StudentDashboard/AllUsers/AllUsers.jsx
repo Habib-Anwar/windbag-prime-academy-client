@@ -70,7 +70,7 @@ const AllUsers = () => {
             <td>{user.name}</td>
             <td>{user.email}</td>
             <td>{
-            user.role === 'admin' ? 'admin' : <FaUserShield></FaUserShield>}</td>
+            user.role === 'admin' || user.role === 'instructor' ? user.role : <FaUserShield></FaUserShield>}</td>
             <td>
                 <button onClick={()=>{handleMakeInstructor(user)}} className="btn btn-neutral btn-sm">Make Instructor</button>
                 <button onClick={() =>{handleMakeAdmin(user)}} className="btn btn-error btn-sm">Make Admin</button>
