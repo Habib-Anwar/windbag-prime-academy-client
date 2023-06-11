@@ -13,7 +13,7 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-    const {signIn} = useContext(AuthContext);
+    const {signIn, googleSignIn} = useContext(AuthContext);
     const onCommit = data =>{
         signIn(data.email, data.password)
         .then(result => {
@@ -31,6 +31,31 @@ const Login = () => {
           navigate(from, {replace: true});
         })
     }
+
+    const handleGoogleSignIn = () =>{
+      googleSignIn()
+      .then(result =>{
+          const loggedInUser = result.user;
+          console.log(loggedInUser);
+
+          const saveUser = {name: loggedInUser.displayName, email:loggedInUser.email}
+      fetch('http://localhost:5000/users', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(saveUser)
+      })
+      .then(res => res.json())
+      .then(() => {
+         navigate(from, {replace: true});
+        }
+      )
+
+   
+
+      })
+  }
 
     return (
         <div>
@@ -133,8 +158,8 @@ const Login = () => {
                       </a>
                     </li>
                     <li className="w-full px-2">
-                      <a
-                        href="javascript:void(0)"
+                      <Link
+                         onClick={handleGoogleSignIn}
                         className="flex h-11 items-center justify-center rounded-md bg-[#D64937] hover:bg-opacity-90"
                       >
                         <svg
@@ -149,7 +174,7 @@ const Login = () => {
                             fill="white"
                           />
                         </svg>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <a

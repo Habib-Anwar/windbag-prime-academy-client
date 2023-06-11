@@ -10,6 +10,7 @@ import Page404 from "../Pages/Page404/Page404";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboard";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -43,7 +44,7 @@ import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboa
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
       children: [
         {
           path: '/dashboard/studentdashboard',

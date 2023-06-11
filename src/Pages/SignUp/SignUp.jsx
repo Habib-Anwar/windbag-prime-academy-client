@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
 
 
 const SignUp = () => {
@@ -11,23 +12,35 @@ const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const onSubmit = data => {
-        console.log(data);
         createUser(data.email, data.password)
         .then(result =>{
           const loggedUser = result.user;
           console.log(loggedUser);
           updateUserProfile(data.name, data.photoURL)
           .then(() =>{
-            console.log('user information updated');
-            reset();
-            Swal.fire({
-                position: 'top-middle',
-                icon: 'success',
-                title: 'User created successfully',
-                showConfirmButton:false,
-                timer: 2000
-              });
-              navigate('/');
+            const saveUser = {name: data.name, email:data.email}
+            fetch('http://localhost:5000/users', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(saveUser)
+            })
+            .then(res => res.json())
+            .then(data => {
+              if(data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: 'top-middle',
+                  icon: 'success',
+                  title: 'User created successfully',
+                  showConfirmButton:false,
+                  timer: 2000
+                })
+    
+              }
+            })
+            navigate('/')
           })
           .catch(error =>console.log(error))
         })
@@ -97,6 +110,8 @@ const SignUp = () => {
                 </div>
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
             </form>
+            
+            <GoogleLogin></GoogleLogin>
 
         </div>
 
