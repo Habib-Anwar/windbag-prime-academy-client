@@ -11,6 +11,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboard";
 import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../Pages/Dashboard/StudentDashboard/AllUsers/AllUsers";
 
 
 
@@ -49,6 +50,10 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: '/dashboard/studentdashboard',
           element: <StudentDashboard></StudentDashboard>
+        },
+        {
+          path: '/dashboard/allusers',
+          element: <AllUsers></AllUsers>
         }
       ]
     },
