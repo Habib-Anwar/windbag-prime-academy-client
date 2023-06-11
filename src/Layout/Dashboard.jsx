@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import {  FaBook, FaHome, FaLandmark, FaWallet } from 'react-icons/fa';
+import {  FaBook, FaHome, FaLandmark, FaPeopleArrows, FaWallet } from 'react-icons/fa';
 
 
 const Dashboard = () => {
@@ -23,7 +23,9 @@ const Dashboard = () => {
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
 
       {
-        isAdmin? <><li><Link to='/'><FaHome></FaHome>Manage Classes</Link></li>
+        isAdmin? <>
+        <li><Link to='/'><FaHome></FaHome>Home</Link></li>
+        <li><Link to='/'><FaPeopleArrows></FaPeopleArrows> Manage Classes</Link></li>
         <li><Link to="/dashboard/allusers"><FaBook></FaBook> Manage Users</Link></li>
         <li><Link><FaWallet></FaWallet> Payment History</Link></li></> : <>  <li><Link to='/'><FaHome></FaHome>Home</Link></li>
         <li><Link to='/dashboard/studentdashboard'><FaLandmark></FaLandmark>My Selected Classes</Link></li>
