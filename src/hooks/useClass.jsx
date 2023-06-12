@@ -4,7 +4,7 @@ const useClass = () =>{
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
-        fetch('http://localhost:5000/classes')
+        fetch('https://windbag-prime-academy-server-tauft-aolcom.vercel.app/classes')
         .then(res => res.json())
         .then(data => {
             

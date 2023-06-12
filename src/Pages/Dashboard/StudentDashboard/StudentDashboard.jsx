@@ -19,7 +19,7 @@ const StudentDashboard = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-             fetch(`http://localhost:5000/courses/${item._id}`, {
+             fetch(`https://windbag-prime-academy-server-tauft-aolcom.vercel.app/courses/${item._id}`, {
                 method: 'DELETE'
              })
              .then(res => res.json())

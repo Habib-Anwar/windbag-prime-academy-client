@@ -15,7 +15,7 @@ const Classes = ({ item }) => {
         console.log(item);
         if(user && user.email){
             const courseItem = {courseId:id, name, image, instructor, price, email: user.email}
-            fetch('http://localhost:5000/courses', {
+            fetch('https://windbag-prime-academy-server-tauft-aolcom.vercel.app/courses', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

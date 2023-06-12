@@ -26,7 +26,7 @@ const AddclassName = () => {
            
         }
         console.log(addCourse);
-        fetch('http://localhost:5000/categories', {
+        fetch('https://windbag-prime-academy-server-tauft-aolcom.vercel.app/categories', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
