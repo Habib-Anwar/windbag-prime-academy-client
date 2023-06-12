@@ -12,6 +12,7 @@ import Dashboard from "../Layout/Dashboard";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboard";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/StudentDashboard/AllUsers/AllUsers";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 
 
 
@@ -54,6 +55,10 @@ import AllUsers from "../Pages/Dashboard/StudentDashboard/AllUsers/AllUsers";
         {
           path: '/dashboard/allusers',
           element: <AllUsers></AllUsers>
+        },
+        {
+          path: '/dashboard/addclass',
+          element: <AddClass></AddClass>
         }
       ]
     },

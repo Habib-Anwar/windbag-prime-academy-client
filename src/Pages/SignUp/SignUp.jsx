@@ -4,9 +4,15 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 const SignUp = () => {
+
+    const [password, setPassword] = useState();
+    const [confirmation, setConfirmation] = useState();
+    const [match, setMatch] = useState(false);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -46,6 +52,17 @@ const SignUp = () => {
         })
     };
 
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+      };
+    
+      const handleConfirmationChange = (event) => {
+        setConfirmation(event.target.value);
+      };
+      useEffect(() => {
+        setMatch(password === confirmation);
+      }, [password, confirmation]);
+
     return (
         <div>
             <form onSubmit={ handleSubmit(onSubmit)} className="w-1/2">
@@ -61,7 +78,7 @@ const SignUp = () => {
                 </div>
                 <div className="mb-6">
                     <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                    <input type="password" {...register("password", {
+                    <input type="password"  onChange={handlePasswordChange} {...register("password", {
                         required: true,
                         minLength: 6,
                         maxLength: 20,
@@ -74,7 +91,8 @@ const SignUp = () => {
                 </div>
                 <div className="mb-6">
                     <label htmlFor="repeat-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
-                    <input type="password" id="repeat-password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    <input type="password"  onChange={handleConfirmationChange} id="repeat-password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                    {match ? <p className="text-green-600">Passwords match!</p> : <p className="text-red-600">Passwords do not match!</p>}
                 </div>
                 <div className="mb-6">
                     <label htmlFor="" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo URL</label>

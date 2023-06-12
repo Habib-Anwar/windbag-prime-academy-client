@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import './PopularTeacher.css'
 import useClass from "../../../../hooks/useClass";
+import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 
 const PopularTeacher = () => {
    const [courses] = useClass();
@@ -12,6 +13,10 @@ const PopularTeacher = () => {
 
 
     return (
+      <>
+      <SectionTitle
+      subHeading="meet our top instructors"
+      heading="popular instructors"></SectionTitle>
         <div className="teacher font-bold">
                   <Swiper
         pagination={{
@@ -40,6 +45,7 @@ const PopularTeacher = () => {
      
       </Swiper>
         </div>
+        </>
     );
 };
 

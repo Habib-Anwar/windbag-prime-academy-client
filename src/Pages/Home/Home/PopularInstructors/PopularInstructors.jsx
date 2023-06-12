@@ -10,11 +10,15 @@ import swipe4 from "../../../../assets/images/swipe4.jpg"
 import swipe5 from "../../../../assets/images/swipe5.png"
 
 import { EffectCoverflow, Pagination } from "swiper";
+import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 
 
 const PopularInstructors = () => {
     return (
       <div>
+        <SectionTitle
+        subHeading="make your children's learning interesting"
+        heading="learning is fun"></SectionTitle>
         <div>
             <Swiper
         effect={"coverflow"}
